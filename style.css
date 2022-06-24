@@ -1,0 +1,410 @@
+* {
+    margin:0 ;
+    padding:0 ;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+header {
+    display: flex !important; /*để cái thanh header li nằm hàng ngang */
+    justify-content: space-between;
+    padding: 12px 50px;
+    height: 70px;
+    width: 100%;
+    align-items: center;
+  /*background-image: url("hinhanh/header.jpg");*/
+    position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background: rgba(2, 30, 54, 0.425);
+        
+        
+
+}
+header.sticky{
+    background-image: url("hinhanh/Capture.PNG");
+}
+header:hover{
+    /*ackground: rgba(rgb(2, 30, 54), rgb(2, 30, 54), rgb(2, 30, 54), 1) !important;*/
+    background-image: url("hinhanh/Capture.PNG")
+
+}
+
+
+.logo {
+    flex: 1;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+}
+.menu {
+    flex: 3;
+    display: flex;
+    
+    
+
+}
+/*
+.sub-menu{
+    position: absolute;
+    width: 150px;
+    border: 1px solid #ccc;
+    padding: 10px 0 10px 20px;
+    background-color: rgb(2, 30, 54);
+}
+*/
+.menu > li {
+    padding: 0 12px;
+    position: relative;
+    color: rgb(182, 162, 96);
+    font-weight: bold !important;
+}
+.menu > li:hover .sub-menu{
+    visibility: visible;
+    top: 30px;
+
+/*visibility là để ẩn và hiện một thứ nào đó , nó thường đi với hover để khi bình thường sẽ ẩn
+ và trỏ chuột vào là hiện
+ https://www.w3schools.com/cssref/tryit.asp?filename=trycss_visibility
+ */
+}
+/*
+img {
+    max-width: 100%;
+    max-height: 100%;
+   }
+   */
+.sub-menu{
+    position: absolute;
+    width: 150px;
+    border: 1px solid #cccc;
+    padding: 10px  0 10px 20px;
+    /*padding là để căn lề cách cái ở trên dưới trái phải là ...PX*/
+    visibility: hidden;
+    top: 60px;
+    /*background-color: rgb(2, 30, 54);*/
+    background-image: url("hinhanh/Capture.PNG");
+
+    transition: 0.5s;
+    z-index: 1;
+    border-radius:0 10% 0 10% ;
+    
+ 
+}
+
+.sub.menu ul{
+    padding-left: 200px;
+}
+.sub-menu li{
+    font-size: 12px;
+    line-height: 22px;
+    padding-left: 10px;
+
+}
+.menucon li a{
+    color: #7c7c7c;
+    font-size: 12px!important;
+    font-weight: normal!important;
+}
+.menucon > li:hover {
+    background-color: #FFD700;
+}
+::placeholder {
+   /*background-image: url("hinhanh/Capture.PNG");*/
+  /*  background-color: rgb(2, 30, 54);*/
+  background-color: rgba(rgb(2, 30, 54), rgb(2, 30, 54), rgb(2, 30, 54), 0.6);
+      color: rgb(85, 81, 26);
+    border: 0;
+    }
+.sub-menu li a{ 
+    font-weight: bold;
+    font-size: 12px;
+}
+/*neu' (sub.menu li a) chu' k phai sub-menu li a  VA` (menu li a) k co' font weight nomal thi` k in dam  thi` k in dam*/
+
+.menu li a {
+    font-size: 14px;
+
+    display: block;
+    line-height: 28px;
+    color: rgb(85, 81, 26) !important;
+
+    
+}
+
+
+.others {
+    flex: 1;
+    display: flex;
+}
+.others > li {
+    padding: 0 12px; 
+    
+}
+.others > li:first-child{
+    position: relative;
+}
+.others > li:first-child input{
+width: 100%;
+border: none;
+border-bottom: 1px solid #333;
+background: transparent;
+/*background: transparent; là để tàng hình*/
+outline: none;
+
+}
+
+
+.others > li:first-child i {
+    position: absolute;
+    right: 10px;
+}
+
+#slider{
+    padding-bottom: 30px;
+    border-bottom: 2px solid #000;
+    overflow: hidden;
+    background-image: url("hinhanh/header.jpg");
+    
+}
+.aspect-ratio-169 {
+    display: block;
+    position: relative;
+    padding-top: 43.25%;
+    transition: 0.3s;
+    width: 100%;
+    height: 80%;
+
+
+
+
+  }
+  .aspect-ratio-169 img{
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+  }
+  .dot-container {
+      position: absolute;
+      height: 30px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      justify-content: center; 
+      
+
+
+  }
+  .dot{
+      height: 13px;
+      width: 13px;
+      background-color: #ccc;
+      border-radius: 50%;
+      margin-right: 12px;
+      cursor: pointer;
+
+  }
+  .dot.active{
+      background-color: #333;
+  }
+  /*KIẾN THỨC
+  thẻ span vs div là giống nhau là nó đi liền dòng , khác ở chỗ div là nhiều thứ như ảnh vid các kiểu
+cho vô dc còn span là chỉ đc đnahs văn bản
+  thẻ span khác mấy thg p h123456 a là : span nó ghi liền mạch còn thằng p mỗi thẻ là 1 dòng rất mất dạy
+  THẺ a vs span đều ghi liền dòng nhưng thẻ a dùng để đính kèm LINK
+  */
+  /*----------------------------APP-----------------------------*/
+  .app-container{
+      text-align: center;
+      align-items: center;
+      padding: 150px 0 50px 0;
+      font-family: sans-serif !important;
+      background-image: url("hinhanh/Capture.PNG");
+      color: rgb(85, 81, 26);
+
+  }
+  .app-google{
+      margin: 50px;
+
+  }
+  .app-google img{
+      height: 50px;
+      border-radius: 60px;
+  }
+  .app-container p{
+      line-height: 20px;
+      letter-spacing: 1px;
+      font-size: 17px;
+      color: rgb(85, 81, 26);
+      font-weight: bold;
+      display: block;
+      
+  }
+  .app-container input{
+      margin-top: 30px;
+      border: none;
+      border-bottom: 1px solid rgb(85, 81, 26);
+      padding-bottom: 10px;
+
+      background-image: url("hinhanh/Capture.PNG");
+      width: 200px;
+      
+      outline: none;
+      
+  }
+/*----------------------------footer-----------------------------*/
+.footer-top{
+    display: flex;
+    margin: 50px;
+    align-items: center;
+    justify-content: center;
+    background-image: url("hinhanh/Capture.PNG");
+    margin-left: 30px;
+    margin-right: 30px;
+    color: rgb(85, 81, 26);
+    margin-bottom: 20px;
+    height: 70px;
+
+
+}
+.footer-top li{
+    padding: 0 12px;
+    position: relative;
+}
+.footer-top li::after{
+    content: "";
+    display: block;
+    width: 1px;
+
+    height: 80%;
+    background: rgb(95, 95, 95);
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    /*Thêm gạch từ thg bộ công thương sang diu túp*/
+
+
+}
+.footer-top li:last-child::after{
+    display: none;
+    /*Xóa gấu gạch cuối ở diu túp*/
+
+}
+.footer-top li:last-child a{
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
+.info{
+    display: block;
+    margin: 50px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    color: rgb(85, 81, 26);
+}
+.coppy-right{
+    display: flex;
+    margin: 50px;
+    align-items: center;
+    justify-content: center;
+    color: rgb(85, 81, 26);
+    font-size: 12px;
+}
+/*------------------CARTEGORY-----------------------*/
+.cartegory{
+    padding: 100px 0 0;
+    /*để cái dòng trang chủ - nữ nó thụt xuống tí chứ k nó nằm trong đầu header*/
+
+}
+.cartegory-top{
+    margin-bottom: 50px;
+    color: #8f8d2a;
+
+}
+.cartegory-top p{
+    font-family: var(--main-text-font);
+    margin: 0 12px;
+    font-size: 12px;
+}
+.cartegory-left{
+    width: 20%;
+}
+.cartegory-right{
+    width: 80%;
+}
+.cartegory-right-top-item:first-child{
+    flex: 2;
+    font-size: 16px;
+    font-family: var(--main-text-font);
+    font-weight: bold;
+}
+.cartegory-right-top-item{
+    flex: 1;
+    padding: 0 12px;
+    color: #8f8d2a;
+}
+.cartegory-right-top-item button{
+    /*button Bộ lọc ở trang cartegory*/
+    width: 100%;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    border: 1px solid #dddddd;
+    cursor: pointer;
+
+}
+.cartegory-right-top-item select{
+    /*Cái SẮP XẾP để chọn lọc theo giá*/
+    width: 100%;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    border: 1px solid #dddddd;
+    cursor: pointer;
+
+}
+.cartegory-right-content{
+    margin-top: 20px;
+    justify-content: space-between;
+    
+}
+.cartegory-right-content-item{
+    width: calc(25% - 12px);
+    text-align: center;
+    padding: 12px 0;
+    
+
+}
+.cartegory-right-content-item h1{
+    font-size: 14px;
+    font-family: var(--main-text-font);
+    margin-top: 6px;
+    color: #8f8d2a;
+    font-weight: bold;
+}
+.cartegory-right-content-item img{
+    width: 100%;
+    border-radius:0 20% 0 20% ;/*Bo tròn 4 góc từ trái qua phải ,trên xuống dưới*/
+
+}
+.cartegory-right-content-item p{
+    font-size: 12px;
+    color: #8f8d2a;
+}
