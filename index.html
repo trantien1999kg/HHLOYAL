@@ -88,12 +88,12 @@
     </section>
     <!-----------------------------app-container------------------------------->
     <section class="app-container">
-        <p>Tải App IVY Moda</p>
+        <p>Tải App H&H LOYAL</p>
         <div class="app-google">
             <img src="hinhanh/chplay.png">
             <img src="hinhanh/appstore.png">
         </div>
-        <p>Nhận Tin IVY Moda</p>
+        <p>Nhận Tin H&H LOYAL</p>
 
         <input class="bi bi-arrow-left-square-fill" type="text" placeholder="Nhập maill của bạn ..... ">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -158,6 +158,13 @@ window.addEventListener("scroll",function(){
     else{
         header.classList.remove("sticky")
     }
+})
+
+const itemsliderbar = document.querySelectorAll(".cartegory-left-li")
+itemsliderbar.forEach(function(menu,index){
+    menu.addEventListener("click",function(){
+        menu.classList.toggle("block")
+    })
 })
 
 
